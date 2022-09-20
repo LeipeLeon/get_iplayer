@@ -1,0 +1,23 @@
+# Required minimum dip version
+version: '7.3'
+
+compose:
+  files:
+    - docker-compose.yml
+    - docker-compose.override.yml
+
+interaction:
+  sh:
+    description: Open a zshell with oh-my-zsh preconfigured
+    service: get_iplayer
+    command: zsh
+
+provision:
+  # Remove old containers and volumes.
+  - dip compose down --volumes --remove-orphans
+
+  # Validate config
+  - dip compose config > /dev/null
+
+  # build it
+  - dip compose build

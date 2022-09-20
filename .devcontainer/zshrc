@@ -1,0 +1,14 @@
+export ZSH="/root/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(git heroku)
+
+source $ZSH/oh-my-zsh.sh
+
+alias plan="terraform plan"
+alias apply="terraform apply"
+alias run-all="terraform run-all"
+alias t="terraform"
+
+PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PROMPT+='%{$fg[cyan]%}%2c%{$reset_color%} '
+# PROMPT+=' $(git_prompt_info)%{$fg[cyan]%}%2c%{$reset_color%} '

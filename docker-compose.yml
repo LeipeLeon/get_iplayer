@@ -1,0 +1,18 @@
+services:
+  get_iplayer:
+    build:
+      context: .devcontainer
+      args:
+        TERRAFORM: 1.0.11
+    stdin_open: true
+    tty: true
+    command: zsh
+    environment:
+      HISTFILE: /root/history/.zsh_history
+    volumes:
+      - .:/apps
+      - $HOME/.ssh:/root/.ssh:ro
+      - history:/root/history
+
+volumes:
+  history:
